@@ -7,25 +7,136 @@
   <link rel="stylesheet" href="anelaou.css">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="esq">
-        <div class="imagem">
-          <img src="fotos/anellaçouro.png" alt="Anel de Ouro Masculino">
+    <header>        
+        <div class="aside">
+            <span>&#8801;</span>
+        </div>
+        <div class="logo">
+            <img src="fotos/logo.png" alt="">
+        </div>
+    </header>
+
+<aside class="menu-lateral">
+    <div class="fechar-menu">
+        <span>&#10005;</span>
+    </div>
+
+    <a href="produtos.html">Início</a>
+
+    <hr>
+
+    <a href="login.html">Login</a>
+    <a href="carrinho.html">Carrinho</a>
+</aside>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="esq">
+          <div class="imagem">
+            <img src="fotos/anellaçouro.png" alt="Anel de Ouro Masculino">
+          </div>
+        </div>
+        <div class="naosei">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+          <div class="naosei2">
+            <h1 class="titulo">Anel Laço Dourado com Zircônias</h1>
+            <p class="preco">R$ R$650,00</p>
+            <p class="descricao">Romântico e feminino, este anel apresenta um laço central super delicado, acompanhado de zircônias brilhantes nas laterais. Uma peça que transmite leveza e sutileza, perfeita para quem ama detalhes fofos e elegantes.
+</p>
+            <div class="butoes">
+              <button class="add">Adicione ao carrinho</button>
+              <div class="corassao">❤</div>
+              <button class="compra">Compre</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="naosei">
-        <div class="dot1"></div><div class="dot2"></div>
-        <div class="naosei2">
-        <h1 class="titulo">Anel de Ouro</h1>
-        <div class="butoes">
-          <button class="add">Adicione ao<br>carrinho</button>
-          <div class="corassao">❤</div>
-          <button class="compra">Compre</button>
-        </div>
+
+
+    <!-- Seção de Produtos Relacionados -->
+    <div class="spr">
+  <p class="titulo-relacionados">Produtos Relacionados</p>
+
+  <div class="grade-relacionados">
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/anelourocorassao.png" alt="Anel de Ouro Clássico">
       </div>
+      <h3 class="nome-produto">Anel de Ouro</h3>
+      <p class="preco-produto">R$650,00</p>
+      <button class="btn-add">Adicionar</button>
     </div>
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/anelcoraçãoprata.png" alt="Anel de Ouro Elegante">
+      </div>
+      <h3 class="nome-produto">Anel Ouro Elegante</h3>
+      <p class="preco-produto">R$ 279,90</p>
+      <button class="btn-add">Adicionar</button>
     </div>
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/aneldiamante.png" alt="Anel de Ouro Luxo">
+      </div>
+      <h3 class="nome-produto">Anel Ouro Luxo</h3>
+      <p class="preco-produto">R$ 399,90</p>
+      <button class="btn-add">Adicionar</button>
+    </div>
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/anelpratacruz.png" alt="Anel de Prata Cruz">
+      </div>
+      <h3 class="nome-produto">Anel Prata Cruz</h3>
+      <p class="preco-produto">R$ 129,90</p>
+      <button class="btn-add">Adicionar</button>
+    </div>
+
   </div>
+</div>
+
+  </main>
+
+ <footer>
+    <div class="footer">
+      <div class="fotos">
+        <a href="https://www.instagram.com/annas.marias?igsh=MWhoODFqZTlxNHg5MA=="><img src="fotos/instalogo.png">
+        </a>
+      </div>
+      <div class="fotos">
+        <img src="fotos/ccm.png" alt="">
+      </div>
+      <div class="fotos"> <img src="fotos/pr.svg" alt=""></div>
+    </div>
+  </footer>
+
+   <script>
+const asideBtn = document.querySelector(".aside span");
+const menu = document.querySelector(".menu-lateral");
+const fecharMenu = document.querySelector(".fechar-menu span");
+
+// abrir
+asideBtn.onclick = () => {
+    menu.classList.add("open");
+};
+
+// fechar clicando no X
+fecharMenu.onclick = () => {
+    menu.classList.remove("open");
+};
+
+// fechar clicando fora
+document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
+        menu.classList.remove("open");
+    }
+});
+
+    </script>
 </body>
 </html>

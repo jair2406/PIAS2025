@@ -1,0 +1,259 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Lucida Sans','Lucida Grande',Verdana,sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* HEADER igual ao seu site */
+header{
+  background:rgb(27,27,27);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:20px 0;
+}
+
+.aside{
+  position:absolute;
+  left:20px;
+  color:whitesmoke;
+  font-size:3.5rem;
+  cursor:pointer;
+}
+
+.logo img{
+  width:120px;
+}
+
+.menu-lateral{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100vh;
+  background:rgb(27,27,27);
+  padding-top:100px;
+  padding-left:30px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  transition:.3s ease;
+  z-index:9999;
+}
+
+.menu-lateral a{
+  color:white;
+  font-size:1.4rem;
+  font-weight:600;
+}
+.menu-lateral a:hover{
+    font-size:1.6rem;
+}
+
+.menu-lateral.open{
+  left:0;
+}
+
+@media(max-width:900px){
+  .menu-lateral{
+    width:230px;
+  }
+}
+
+@media(max-width:600px){
+  .menu-lateral{
+    width:210px;
+    padding-top:80px;
+  }
+  .menu-lateral a{
+    font-size:1.2rem;
+  }
+}
+
+@media(max-width:430px){
+  .menu-lateral{
+    width:180px;
+    padding-left:20px;
+  }
+  .menu-lateral a{
+    font-size:1.1rem;
+  }
+}
+.fechar-menu {
+    width: 100%;
+    text-align: right;
+    padding: 18px 22px;
+}
+
+.fechar-menu span {
+    font-size: 4rem;
+    font-weight: 300;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    transition: .2s;
+}
+
+.fechar-menu span:hover {
+    color: #ff9c9c;
+    transform: scale(1.15);
+}
+.menu-lateral hr {
+    width: 80%;
+    margin: 14px auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}
+a{
+  text-decoration:none;
+}
+main{
+  flex:1;
+  background:#f5f5f5;
+  padding:40px 20px;
+}
+/* CARRINHO */
+.cart-page{
+  max-width:800px;
+  margin:40px auto;
+  padding:30px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.cart-page h1{
+  text-align:center;
+  margin-bottom:20px;
+  color:#222;
+  font-size:2rem;
+}
+
+#cart-items{
+  list-style:none;
+}
+
+#cart-items li{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+  border-bottom:1px solid #ddd;
+}
+
+#cart-items li:last-child{
+  border-bottom:none;
+}
+
+#cart-items span{
+  font-size:1rem;
+  font-weight:600;
+  color:#333;
+}
+
+#cart-total{
+  text-align:right;
+  font-size:1.7rem;
+  font-weight:700;
+  margin-top:24px;
+  color:#333;
+}
+
+.cart-actions{
+  margin-top:24px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.cart-actions button{
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  font-size:1rem;
+  cursor:pointer;
+}
+
+#clear-cart{
+  background:rgb(220,50,50);
+  color:white;
+}
+
+#checkout{
+  background:rgb(27,27,27);
+  color:white;
+}
+
+/* FOOTER igual ao site */
+.footer {
+ margin-top: auto;
+  background: rgb(27,27,27);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+
+.fotos{
+  width:70px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.fotos img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:brightness(95%);
+  transition:.3s;
+}
+
+.fotos img:hover{
+  transform:translateY(-4px) scale(1.05);
+  filter:brightness(110%);
+}
+
+/* RESPONSIVIDADE */
+@media(max-width:600px){
+  .aside{font-size:2.8rem;left:12px;}
+  .cart-page{padding:20px;}
+  .cart-actions button{padding:10px 18px;}
+  .footer{gap:25px;padding:20px;}
+  .fotos{width:45px;height:45px;}
+}
+
+/* Botões gerais */
+.cart-actions button {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease; /* animação suave para todos os efeitos */
+}
+
+/* Hover: efeito de "levantar" e escurecer/levar cor mais viva */
+.cart-actions button:hover {
+  transform: translateY(-3px) scale(1.05); /* sobe e aumenta levemente */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* sombra suave */
+}
+
+/* Efeitos específicos por tipo de botão */
+#clear-cart:hover {
+  background: rgb(200, 40, 40); /* vermelho mais forte */
+}
+
+#checkout:hover {
+  background: rgb(10, 10, 10); /* deixa o preto mais intenso */
+}

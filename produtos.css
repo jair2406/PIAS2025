@@ -1,0 +1,275 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Geneva,Verdana,sans-serif;
+}
+
+header{
+  background-color:rgb(27,27,27);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:20px 0;
+}
+
+a{
+    text-decoration:none;
+}
+.aside{
+  position:absolute;
+  left:20px;
+  color:whitesmoke;
+  font-size:8rem;
+  cursor:pointer;
+}
+
+.logo{
+  width:150px;
+}
+
+main{
+  background:#f0f0f0;
+  padding:50px 0;
+}
+
+.titulo-sessao{
+  width:90%;
+  margin:0 auto 18px auto;
+  color:#222;
+  font-size:1.8rem;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:0 10px;
+}
+
+.titulo-sessao::before,
+.titulo-sessao::after{
+  content:"";
+  flex:1;
+  height:2px;
+  background:#cfcfcf;
+}
+
+.sessao{
+  display:flex;
+  overflow-x:auto;
+  gap:26px;
+  padding:18px 20px 34px 20px;
+  width:100%;
+}
+
+
+.card, .cardbugado, .cardbugado2, .cardbugado3{
+  flex:0 0 auto;
+  width:260px;
+  text-align:center;
+  color:#555;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.cardcor{
+  width:100%;
+  height:220px;
+  border-radius:12px;
+  background:#525252;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  transition:.22s;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.cardcor:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.cardcor img{
+  width:80%;
+  height:auto;
+  object-fit:contain;
+}
+
+.nome{
+  margin-top:12px;
+  font-size:1rem;
+  color:#333;
+  font-weight:600;
+  font-size: 1.5rem;
+}
+
+.preço{
+  margin-top:6px;
+  color:#777;
+  font-weight:700;
+    font-size: 1.5rem;
+}
+
+@media (max-width:900px){
+  .aside{font-size:6rem;left:15px;}
+  .logo{width:120px;}
+  .titulo-sessao{font-size:1.4rem;}
+  .card{width:230px;}
+  .cardcor{height:200px;}
+}
+
+@media (max-width:600px){
+  header{padding:14px 0;}
+  .aside{font-size:4.2rem;left:12px;}
+  .logo{width:100px;}
+  .titulo-sessao{font-size:1.2rem;gap:10px;}
+  .card{width:200px;}
+  .cardcor{height:180px;}
+  .sessao{gap:18px;padding:14px;}
+}
+
+@media (max-width:430px){
+  header{padding:10px 0;}
+  .aside{font-size:3.4rem;left:10px;}
+  .logo{width:80px;}
+  .titulo-sessao{font-size:1rem;gap:8px;}
+  .card{width:180px;}
+  .cardcor{height:160px;}
+  .sessao{gap:14px;}
+}
+.footer {
+    width: 100%;
+    background-color: rgb(27, 27, 27);
+    padding: 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.fotos {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotos img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(95%);
+    transition: 0.3s;
+}
+
+.fotos img:hover {
+    transform: translateY(-4px) scale(1.05);
+    filter: brightness(110%);
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .footer {
+        gap: 25px;
+        padding: 20px 10px;
+    }
+
+    .fotos {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 400px) {
+    .footer {
+        gap: 18px;
+    }
+
+    .fotos {
+        width: 40px;
+        height: 40px;
+    }
+}
+.menu-lateral{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100vh;
+  background:rgb(27,27,27);
+  padding-top:100px;
+  padding-left:30px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  transition:.3s ease;
+  z-index:9999;
+}
+
+.menu-lateral a{
+  color:white;
+  font-size:1.4rem;
+  font-weight:600;
+}
+.menu-lateral a:hover{
+    font-size:1.6rem;
+}
+
+.menu-lateral.open{
+  left:0;
+}
+
+@media(max-width:900px){
+  .menu-lateral{
+    width:230px;
+  }
+}
+
+@media(max-width:600px){
+  .menu-lateral{
+    width:210px;
+    padding-top:80px;
+  }
+  .menu-lateral a{
+    font-size:1.2rem;
+  }
+}
+
+@media(max-width:430px){
+  .menu-lateral{
+    width:180px;
+    padding-left:20px;
+  }
+  .menu-lateral a{
+    font-size:1.1rem;
+  }
+}
+.fechar-menu {
+    width: 100%;
+    text-align: right;
+    padding: 18px 22px;
+}
+
+.fechar-menu span {
+    font-size: 4rem;
+    font-weight: 300;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    transition: .2s;
+}
+
+.fechar-menu span:hover {
+    color: #ff9c9c;
+    transform: scale(1.15);
+}
+.menu-lateral hr {
+    width: 80%;
+    margin: 14px auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}

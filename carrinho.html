@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho</title>
+  <link rel="stylesheet" href="stylecarrinho.css">
+</head>
+<body>
+
+  <header>        
+        <div class="aside">
+            <span>&#8801;</span>
+        </div>
+        <div class="logo">
+            <img src="fotos/logo.png" alt="">
+        </div>
+    </header>
+
+<aside class="menu-lateral">
+    <div class="fechar-menu">
+        <span>&#10005;</span>
+    </div>
+
+    <a href="produtos.html">início</a>
+
+
+    <hr>
+
+   <a href="login.html">Login</a>
+</aside>
+
+  <main>
+    <section class="cart-page">
+      <h1>Seu Carrinho</h1>
+
+      <ul id="cart-items"></ul>
+
+      <p id="cart-total">Total: R$ 0,00</p>
+
+      <div class="cart-actions">
+        <button id="clear-cart">Limpar Carrinho</button>
+        <button id="checkout">Finalizar Compra</button>
+      </div>
+    </section>
+  </main>
+
+  
+    <footer>
+        <div class="footer">
+            <div class="fotos">
+                <a href="https://www.instagram.com/annas.marias?igsh=MWhoODFqZTlxNHg5MA=="><img src="fotos/instalogo.png"></a>
+            </div>
+            <div class="fotos">
+                <img src="fotos/ccm.png" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/pr.svg" alt="">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+const asideBtn = document.querySelector(".aside span");
+const menu = document.querySelector(".menu-lateral");
+const fecharMenu = document.querySelector(".fechar-menu span");
+
+// abrir
+asideBtn.onclick = () => {
+    menu.classList.add("open");
+};
+
+// fechar clicando no X
+fecharMenu.onclick = () => {
+    menu.classList.remove("open");
+};
+
+// fechar clicando fora
+document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
+        menu.classList.remove("open");
+    }
+});
+
+    </script>
+
+</body>
+</html>

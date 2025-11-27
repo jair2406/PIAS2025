@@ -1,33 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <header>        
-        <div class="aside">
-            <span>&#8801;</span>
-        </div>
-        <div class="logo">
-            <img src="fotos/logo.png" alt="">
-        </div>
 
-    </header>
+  <!-- HEADER -->
+  <header>        
+    <div class="aside">
+      <span>&#8801;</span>
+    </div>
+    <div class="logo">
+      <img src="fotos/logo.png" alt="">
+    </div>
+  </header>
 
-    <main>
-        <div class="fundo">
-            <h1>Dê mais brilho</h1>
-            <h1>à sua personalidade!</h1>
-            <div class="botoes">
-                <a href="#" class="botao">Cadastre-se</a>
-                <span class="ou">ou</span>
-                <a href="#" class="botao">Login</a>
+  <!-- MENU LATERAL -->
+  <aside class="menu-lateral">
+    <div class="fechar-menu">
+      <span>&#10005;</span>
+    </div>
+
+    <a href="produtos.html">Início</a>
+    <hr>
+    <a href="carrinho.html">Carrinho</a>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+    <section class="cart-page registration-form">
+      <h1>Login</h1>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="name">Nome Completo</label>
+          <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
         </div>
-            <p class="continue"><a href="index.html">Continue sem CADASTRO</a></p>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
         </div>
-    </main>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="cart-actions">
+          <button type="submit" class="submit-btn">Cadastrar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer">
+      <div class="fotos">
+        <a href="https://www.instagram.com/annas.marias?igsh=MWhoODFqZTlxNHg5MA=="><img src="fotos/instalogo.png" alt=""></a>
+      </div>
+      <div class="fotos">
+        <img src="fotos/ccm.png" alt="">
+      </div>
+      <div class="fotos">
+        <img src="fotos/pr.svg" alt="">
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT MENU LATERAL -->
+  <script>
+    const asideBtn = document.querySelector(".aside span");
+    const menu = document.querySelector(".menu-lateral");
+    const fecharMenu = document.querySelector(".fechar-menu span");
+
+    // abrir menu
+    asideBtn.onclick = () => {
+        menu.classList.add("open");
+    };
+
+    // fechar clicando no X
+    fecharMenu.onclick = () => {
+        menu.classList.remove("open");
+    };
+
+    // fechar clicando fora
+    document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
+            menu.classList.remove("open");
+        }
+    });
+
+    // envio do formulário
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userEmail', email);
+      window.location.href = 'produtos.html';
+    });
+  </script>
+
 </body>
 </html>
