@@ -16,16 +16,19 @@
             <img src="fotos/logo.png" alt="">
         </div>
     </header>
- <section class="valormissao">
-    <div class="valores">
-        <h2>Nossos valores</h2>
+<section class="valormissao">
+    <div class="item">
+        <h2 class="toggle">Nossos valores</h2>
         <p>Confiança e fidelidade</p>
     </div>
-    <div class="missão">
-        <h2>Nossa missão</h2>
-        <p>Nossa missão é trazer para as pessoas sua própria personalidade e se reconhcer através do estilo minimalista</p>
+    <div class="item">
+        <h2 class="toggle">Nossa missão</h2>
+        <p>Nossa missão é trazer para as pessoas sua própria personalidade 
+           e se reconhecer através do estilo minimalista</p>
     </div>
- </section>
+</section>
+
+
 <aside class="menu-lateral">
     <div class="fechar-menu">
         <span>&#10005;</span>
@@ -66,7 +69,7 @@
                 <div class="cardcor">
                    <img src="fotos/anelourocorassao.png" alt="">
                 </div>
-                <h3 class="nome">Anel de Ouro</h3> 
+                <h3 class="nome">Anel Dourado Coração Minimalista</h3> 
                 <p class="preço">R$650,00</p>
             </div>
 
@@ -74,7 +77,7 @@
                 <div class="cardcor">
                    <img src="fotos/anelcoraçãoprata.png" alt="">
                 </div>
-                <h3 class="nome">Anel de Prata</h3> 
+                <h3 class="nome">Anel Prateado Coração</h3> 
                 <p class="preço">R$200,00</p>
             </div>
 
@@ -82,7 +85,7 @@
                 <div class="cardcor">
                    <img src="fotos/aneldiamante.png" alt="">
                 </div>
-                <h3 class="nome">Anel de Prata</h3> 
+                <h3 class="nome">Lua de Prata</h3> 
                 <p class="preço">R$200,00</p>
             </div>
 
@@ -90,7 +93,7 @@
                 <div class="cardcor">
                    <img src="fotos/anelpratacruz.png" alt="">
                 </div>
-                <h3 class="nome">Anel de Prata</h3> 
+                <h3 class="nome">Anel Prateado com Detalhe de Zircônias</h3> 
                 <p class="preço">R$200,00</p>
             </div>
 
@@ -98,7 +101,7 @@
                 <div class="cardcor">
                    <img src="fotos/anelprata.png" alt="">
                 </div>
-                <h3 class="nome">Anel de Prata</h3> 
+                <h3 class="nome">Anel Infinito Brilhante</h3> 
                 <p class="preço">R$200,00</p>
             </div>
 
@@ -106,7 +109,7 @@
                 <div class="cardcor">
                    <img src="fotos/conjuntoprataanel.png" alt="">
                 </div>
-                <h3 class="nome">Conjunto Anel de Prata</h3> 
+                <h3 class="nome">Anéis de Prata com Detalhes Exclusivos</h3> 
                 <p class="preço">R$200,00</p>
             </div>
         </section>
@@ -118,7 +121,7 @@
                 <div class="cardcor">
                    <img src="fotos/colarflorouro.png" alt="">
                 </div>
-                <h3 class="nome">Colar de Ouro</h3> 
+                <h3 class="nome">Colar Trevo Madrepérola com Detalhes em Ouro</h3> 
                 <p class="preço">R$1000,00</p>
             </div>
 
@@ -126,7 +129,7 @@
                 <div class="cardcor">
                    <img src="fotos/colarouro.png" alt="">
                 </div>
-                <h3 class="nome">Colar de Ouro</h3> 
+                <h3 class="nome">Colar Trevo Dourado Estilo Premium</h3> 
                 <p class="preço">R$1000,00</p>
             </div>
 
@@ -139,7 +142,7 @@
                 <div class="cardcor">
                    <img src="fotos/brincoazul.png" alt="">
                 </div>
-                <h3 class="nome">Brinco de Prata</h3> 
+                <h3 class="nome">Safiras Brilhantes</h3> 
                 <p class="preço">R$190,00</p>
             </div>
 
@@ -147,7 +150,7 @@
                 <div class="cardcor">
                    <img src="fotos/brincoperola.png" alt="">
                 </div>
-                <h3 class="nome">Brinco de Ouro</h3> 
+                <h3 class="nome">Lágrimas de Pérola</h3> 
                 <p class="preço">R$350,00</p>
             </div>
 
@@ -163,7 +166,7 @@
                 <div class="cardcor">
                    <img src="fotos/argolaouro.png" alt="">
                 </div>
-                <h3 class="nome">Brinco de Ouro</h3> 
+                <h3 class="nome">Argolas Elegantes</h3> 
                 <p class="preço">R$350,00</p>
             </div>
 
@@ -176,7 +179,7 @@
                 <div class="cardcor">
                    <img src="fotos/conjuntopussy.png" alt="">
                 </div>
-                <h3 class="nome">Conjunto Pulseira de Ouro</h3> 
+                <h3 class="nome">Correntes Entrelaçadas</h3> 
                 <p class="preço">R$590,00</p>
             </div>
 
@@ -194,6 +197,9 @@
             </div>
             <div class="fotos">
                 <img src="fotos/pr.svg" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/garotos.jpeg" alt="">
             </div>
         </div>
     </footer>
@@ -218,6 +224,14 @@ document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
         menu.classList.remove("open");
     }
+});
+
+
+//flechinha doas valores e missão
+document.querySelectorAll('.item .toggle').forEach(el => {
+    el.addEventListener('click', () => {
+        el.parentElement.classList.toggle('active');
+    });
 });
 
     </script>

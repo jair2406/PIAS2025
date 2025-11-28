@@ -5,23 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História da Annas & Marias</title>
     <style>
-        body {
-            font-family: "Georgia", serif;
-            background-color: #faf7f5;
-            color: #000000;
-            line-height: 1.6;
-            padding: 0;
-            margin: 0;
-        }
-        header {
-            background-color: #000000;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Geneva,Verdana,sans-serif;
+}
+
+header{
+  background-color:rgb(27,27,27);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:20px 0;
+}
+
+a{
+    text-decoration:none;
+}
+.aside{
+  position:absolute;
+  left:20px;
+  color:whitesmoke;
+  font-size:8rem;
+  cursor:pointer;
+}
+.logo img{
+  width:300px;
+}
+
         main {
             max-width: 800px;
             margin: 40px auto;
@@ -42,13 +55,155 @@
         p {
             margin-bottom: 20px;
         }
+
+  .footer {
+  margin-top: auto;
+  background: rgb(27,27,27);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+
+.fotos{
+  width:70px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.fotos img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:brightness(95%);
+  transition:.3s;
+}
+
+.fotos img:hover{
+  transform:translateY(-4px) scale(1.05);
+  filter:brightness(110%);
+}
+
+/* RESPONSIVIDADE */
+@media(max-width:600px){
+  .aside{font-size:2.8rem;left:12px;}
+  .cart-page{padding:20px;}
+  .cart-actions button{padding:10px 18px;}
+  .footer{gap:25px;padding:20px;}
+  .fotos{width:45px;height:45px;}
+}
+.menu-lateral{
+  position:fixed;
+  top:0;
+  left:-260px;
+  width:260px;
+  height:100vh;
+  background:rgb(27,27,27);
+  padding-top:100px;
+  padding-left:30px;
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+  transition:.3s ease;
+  z-index:9999;
+}
+
+.menu-lateral a{
+  color:white;
+  font-size:1.4rem;
+  font-weight:600;
+}
+.menu-lateral a:hover{
+    font-size:1.6rem;
+}
+
+.menu-lateral.open{
+  left:0;
+}
+
+@media(max-width:900px){
+  .menu-lateral{
+    width:230px;
+  }
+}
+
+@media(max-width:600px){
+  .menu-lateral{
+    width:210px;
+    padding-top:80px;
+  }
+  .menu-lateral a{
+    font-size:1.2rem;
+  }
+}
+
+@media(max-width:430px){
+  .menu-lateral{
+    width:180px;
+    padding-left:20px;
+  }
+  .menu-lateral a{
+    font-size:1.1rem;
+  }
+}
+.fechar-menu {
+    width: 100%;
+    text-align: right;
+    padding: 18px 22px;
+}
+a{
+  text-decoration:none;
+}
+.fechar-menu span {
+    font-size: 4rem;
+    font-weight: 300;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    transition: .2s;
+}
+
+.fechar-menu span:hover {
+    color: #ff9c9c;
+    transform: scale(1.15);
+}
+.menu-lateral hr {
+    width: 80%;
+    margin: 14px auto;
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}
+
     </style>
 </head>
 <body>
-    <header>
-        <h1>Sobre a Annas & Marias</h1>
+    <header>        
+        <div class="aside">
+            <span>&#8801;</span>
+        </div>
+        <div class="logo">
+            <img src="fotos/logo.png" alt="">
+        </div>
     </header>
 
+<aside class="menu-lateral">
+    <div class="fechar-menu">
+        <span>&#10005;</span>
+    </div>
+
+    <a href="produtos.html">Início</a>
+
+    <hr>
+
+    <a href="login.html">Login</a>
+    <a href="carrinho.html">Carrinho</a>
+</aside>
     <main>
         <section>
             <p>
@@ -68,9 +223,45 @@
             </p>
         </section>
     </main>
-
     <footer>
-        <p>&copy; 2025 Annas & Marias - Todos os direitos reservados.</p>
+        <div class="footer">
+            <div class="fotos">
+                <a href="https://www.instagram.com/annas.marias?igsh=MWhoODFqZTlxNHg5MA=="><img src="fotos/instalogo.png"></a>
+            </div>
+            <div class="fotos">
+                <img src="fotos/ccm.png" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/pr.svg" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/garotos.jpeg" alt="">
+            </div>
+        </div>
     </footer>
+    
+    <script>
+const asideBtn = document.querySelector(".aside span");
+const menu = document.querySelector(".menu-lateral");
+const fecharMenu = document.querySelector(".fechar-menu span");
+
+// abrir
+asideBtn.onclick = () => {
+    menu.classList.add("open");
+};
+
+// fechar clicando no X
+fecharMenu.onclick = () => {
+    menu.classList.remove("open");
+};
+
+// fechar clicando fora
+document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
+        menu.classList.remove("open");
+    }
+});
+
+    </script>
 </body>
 </html>

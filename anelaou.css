@@ -24,9 +24,8 @@ a{
   font-size:8rem;
   cursor:pointer;
 }
-
-.logo{
-  width:150px;
+.logo img{
+  width:300px;
 }
 
 body {
@@ -429,7 +428,7 @@ main {
     margin: 0;
 }
 
-.btn-add {
+.ver {
     background: #868686;
     color: white;
     border: none;
@@ -442,7 +441,7 @@ main {
     font-weight: 500;
 }
 
-.btn-add:hover {
+.ver:hover {
     background: #7b7b7b;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -499,7 +498,7 @@ main {
         font-size: 1.1rem;
     }
 
-    .btn-add {
+    .ver {
         padding: 8px 16px;
         font-size: 0.85rem;
     }

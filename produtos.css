@@ -24,9 +24,8 @@ a{
   font-size:8rem;
   cursor:pointer;
 }
-
-.logo{
-  width:150px;
+.logo img{
+  width:300px;
 }
 
 main{
@@ -274,3 +273,68 @@ main{
     border-top: 1px solid rgba(255,255,255,0.25);
 }
 
+.valormissao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Cada bloco */
+.valormissao .item {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+    transition: .3s;
+}
+
+/* H2 minimalista */
+.valormissao .item .toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #111;
+    letter-spacing: .5px;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Seta fina e elegante */
+.toggle::after {
+    content: "";
+    width: 11px;      /* antes 8px */
+    height: 11px;     /* antes 8px */
+    border-right: 2px solid #111;   /* leve aumento */
+    border-bottom: 2px solid #111;
+    transform: rotate(45deg);
+    transition: transform .25s ease;
+    margin-left: 12px;
+}
+
+/* Seta girando */
+.item.active .toggle::after {
+    transform: rotate(225deg);
+}
+
+/* P escondido */
+.item p {
+    margin-top: 8px;
+    color: #444;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.4;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity .3s ease;
+    opacity: 0;
+}
+
+/* P abrindo */
+.item.active p {
+    max-height: 200px;
+    opacity: 1;
+}
