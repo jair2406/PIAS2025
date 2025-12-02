@@ -236,28 +236,53 @@ main{
   .footer{gap:25px;padding:20px;}
   .fotos{width:45px;height:45px;}
 }
+.item-carrinho {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-/* Botões gerais */
-.cart-actions button {
-  border: none;
-  padding: 12px 22px;
+.img-produto {
   border-radius: 8px;
-  font-size: 1rem;
+}
+
+.produto-info p {
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+.controle-qtd {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controle-qtd button {
+  background: #e6e6e6;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 7px;
+  font-size: 18px;
   cursor: pointer;
-  transition: all 0.3s ease; /* animação suave para todos os efeitos */
 }
 
-/* Hover: efeito de "levantar" e escurecer/levar cor mais viva */
-.cart-actions button:hover {
-  transform: translateY(-3px) scale(1.05); /* sobe e aumenta levemente */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* sombra suave */
+.controle-qtd button:hover {
+  background: #d2d2d2;
 }
 
-/* Efeitos específicos por tipo de botão */
-#clear-cart:hover {
-  background: rgb(200, 40, 40); /* vermelho mais forte */
+.qtd {
+  font-weight: bold;
+  width: 26px;
+  text-align: center;
 }
 
-#checkout:hover {
-  background: rgb(10, 10, 10); /* deixa o preto mais intenso */
+.subtotal {
+  text-align: right;
+  margin-left: 20px;
 }

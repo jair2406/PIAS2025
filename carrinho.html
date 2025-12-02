@@ -64,29 +64,102 @@
         </div>
     </footer>
 
-    <script>
+ <script>
+// --- MENU LATERAL (seu JS original) ---
 const asideBtn = document.querySelector(".aside span");
 const menu = document.querySelector(".menu-lateral");
 const fecharMenu = document.querySelector(".fechar-menu span");
 
-// abrir
-asideBtn.onclick = () => {
-    menu.classList.add("open");
-};
-
-// fechar clicando no X
-fecharMenu.onclick = () => {
-    menu.classList.remove("open");
-};
-
-// fechar clicando fora
+asideBtn.onclick = () => menu.classList.add("open");
+fecharMenu.onclick = () => menu.classList.remove("open");
 document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
         menu.classList.remove("open");
     }
 });
 
-    </script>
+// --- SISTEMA DE CARRINHO ---
+function adicionarAoCarrinho(produto) {
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    carrinho.push(produto);
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+</script>
+<script>
+// --- CARRINHO COM QUANTIDADE, + E - --- //
+
+function carregarCarrinho() {
+  const lista = document.getElementById("cart-items");
+  const totalTexto = document.getElementById("cart-total");
+
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  lista.innerHTML = "";
+  let total = 0;
+
+  carrinho.forEach((produto, index) => {
+    total += produto.preco * produto.quantidade;
+
+    const li = document.createElement("li");
+    li.classList.add("item-carrinho");
+
+    li.innerHTML = `
+      <img src="${produto.imagem}" width="70" class="img-produto">
+
+      <div class="produto-info">
+        <strong>${produto.nome}</strong>
+        <p>R$ ${produto.preco.toFixed(2).replace(".", ",")}</p>
+      </div>
+
+      <div class="controle-qtd">
+        <button class="menos">-</button>
+        <span class="qtd">${produto.quantidade}</span>
+        <button class="mais">+</button>
+      </div>
+
+      <div class="subtotal">
+        <p>Subtotal:</p>
+        <strong>R$ ${(produto.preco * produto.quantidade).toFixed(2).replace(".", ",")}</strong>
+      </div>
+    `;
+
+    // Botão de aumentar
+    li.querySelector(".mais").addEventListener("click", () => {
+      produto.quantidade++;
+      salvar(carrinho);
+      carregarCarrinho();
+    });
+
+    // Botão de diminuir
+    li.querySelector(".menos").addEventListener("click", () => {
+      produto.quantidade--;
+      if (produto.quantidade <= 0) {
+        carrinho.splice(index, 1);
+      }
+      salvar(carrinho);
+      carregarCarrinho();
+    });
+
+    lista.appendChild(li);
+  });
+
+  totalTexto.textContent = `Total: R$ ${total.toFixed(2).replace(".", ",")}`;
+}
+
+function salvar(carrinho) {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+// Botão "Limpar Carrinho"
+document.getElementById("clear-cart").addEventListener("click", () => {
+  localStorage.removeItem("carrinho");
+  carregarCarrinho();
+});
+
+// Carregar ao abrir página
+carregarCarrinho();
+</script>
+
 
 </body>
 </html>

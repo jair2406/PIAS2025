@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aba de Compra</title>
+  <link rel="stylesheet" href="safira.css">
+</head>
+<body>
+    <header>        
+        <div class="aside">
+            <span>&#8801;</span>
+        </div>
+        <div class="logo">
+            <img src="fotos/logo.png" alt="">
+        </div>
+    </header>
+
+<aside class="menu-lateral">
+    <div class="fechar-menu">
+        <span>&#10005;</span>
+    </div>
+
+    <a href="produtos.html">Início</a>
+
+    <hr>
+
+    <a href="login.html">Login</a>
+    <a href="carrinho.html">Carrinho</a>
+        <a href="Historia.html">Nossa História</a>
+</aside>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="esq">
+          <div class="imagem">
+            <img src="fotos/brincoazul.png" alt="Anel de Ouro Masculino">
+          </div>
+        </div>
+        <div class="naosei">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+          <div class="naosei2">
+            <h1 class="titulo">Safiras brilhantes</h1>
+            <p class="preco">R$ R$190,00</p>
+            <p class="descricao">Par de brincos com pedras safiras azuis rodeadas por detalhes de diamantes. Um look luxuoso e impactante.
+</p>
+            <div class="butoes">
+              <button class="add">Adicione ao carrinho</button>
+              <div class="corassao">❤</div>
+              <button class="compra">Compre</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Seção de Produtos Relacionados -->
+    <div class="spr">
+  <p class="titulo-relacionados">Produtos Relacionados</p>
+
+  <div class="grade-relacionados">
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/argolaouro.png" alt="Anel de Ouro Clássico">
+      </div>
+      <h3 class="nome-produto">Argolas Elegantes</h3>
+      <p class="preco-produto">R$ 350,00</p>
+      <a href="" class="ver">Ver</a>
+    </div>
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/brincoouro.png" alt="Anel de Ouro Elegante">
+      </div>
+      <h3 class="nome-produto">Brinco de Ouro</h3>
+      <p class="preco-produto">R$ 350,00</p>
+      <a href="" class="ver">Ver</a>
+    </div>
+
+    <div class="cardprodutoo">
+      <div class="imagem-produto">
+        <img src="fotos/brincoperola.png" alt="Anel de Ouro Luxo">
+      </div>
+      <h3 class="nome-produto">Lágrimas de Pérola</h3>
+      <p class="preco-produto">R$ 350,00</p>
+      <a href="" class="ver">Ver</a>
+    </div>
+
+  </div>
+</div>
+
+  </main>
+
+    <footer>
+        <div class="footer">
+            <div class="fotos">
+                <a href="https://www.instagram.com/annas.marias?igsh=MWhoODFqZTlxNHg5MA=="><img src="fotos/instalogo.png"></a>
+            </div>
+            <div class="fotos">
+                <img src="fotos/ccm.png" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/pr.svg" alt="">
+            </div>
+            <div class="fotos">
+                <img src="fotos/garotos.jpeg" alt="">
+            </div>
+        </div>
+    </footer>
+
+   <script>
+const asideBtn = document.querySelector(".aside span");
+const menu = document.querySelector(".menu-lateral");
+const fecharMenu = document.querySelector(".fechar-menu span");
+
+// abrir
+asideBtn.onclick = () => {
+    menu.classList.add("open");
+};
+
+// fechar clicando no X
+fecharMenu.onclick = () => {
+    menu.classList.remove("open");
+};
+
+// fechar clicando fora
+document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !asideBtn.contains(e.target)) {
+        menu.classList.remove("open");
+    }
+});
+
+    </script>
+<script>
+const botaoAdd = document.querySelector(".add");
+
+botaoAdd.addEventListener("click", () => {
+
+  const produto = {
+    nome: document.querySelector(".titulo").textContent,
+    preco: 190,
+    imagem: "fotos/brincoazul.png",
+    quantidade: 1
+  };
+
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  const itemExistente = carrinho.find(item => item.nome === produto.nome);
+
+  if (itemExistente) {
+    itemExistente.quantidade++;
+  } else {
+    carrinho.push(produto);
+  }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  mostrarPopup();
+});
+
+// POPUP ----------------------------------
+const popup = document.createElement("div");
+popup.id = "popup-add";
+popup.textContent = "Produto adicionado ao carrinho!";
+document.body.appendChild(popup);
+
+function mostrarPopup() {
+  popup.classList.add("show");
+  setTimeout(() => popup.classList.remove("show"), 2000);
+}
+</script>
