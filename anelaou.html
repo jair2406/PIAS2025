@@ -27,7 +27,7 @@
 
     <a href="login.html">Login</a>
     <a href="carrinho.html">Carrinho</a>
-        <a href="Historia.html">Nossa História</a>
+        <a href="historia.html">Nossa História</a>
 </aside>
 
   <main>
@@ -143,5 +143,43 @@ document.addEventListener("click", (e) => {
 });
 
     </script>
+    <script>
+const botaoAdd = document.querySelector(".add");
+
+botaoAdd.addEventListener("click", () => {
+
+  const produto = {
+    nome: document.querySelector(".titulo").textContent,
+    preco: 650,
+    imagem: "fotos/anellaçouro.png",
+    quantidade: 1
+  };
+
+  let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  const itemExistente = carrinho.find(item => item.nome === produto.nome);
+
+  if (itemExistente) {
+    itemExistente.quantidade++;
+  } else {
+    carrinho.push(produto);
+  }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  mostrarPopup();
+});
+
+// POPUP ----------------------------------
+const popup = document.createElement("div");
+popup.id = "popup-add";
+popup.textContent = "Produto adicionado ao carrinho!";
+document.body.appendChild(popup);
+
+function mostrarPopup() {
+  popup.classList.add("show");
+  setTimeout(() => popup.classList.remove("show"), 2000);
+}
+</script>
 </body>
 </html>
