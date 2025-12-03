@@ -117,7 +117,7 @@ const botaoAdd = document.querySelector(".add");
 botaoAdd.addEventListener("click", () => {
 
   const produto = {
-    nome: document.querySelector(".titulo").textContent,
+    nome: "Colar Trevo Dourado Estilo Premium",  // <-- AGORA FIXO E CORRETO
     preco: 1000,
     imagem: "fotos/colarouro.png",
     quantidade: 1
@@ -149,6 +149,7 @@ function mostrarPopup() {
   setTimeout(() => popup.classList.remove("show"), 2000);
 }
 </script>
+
 
 
 </body>
